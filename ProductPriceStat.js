@@ -1,6 +1,5 @@
 
 
-console.log('SainsPriceStat');
 const SainsApiUrl = "https://s3.eu-west-1.amazonaws.com/hackajob-assets1.p.hackajob/challenges/sainsbury_products/products.json";
 let arrayResponseData;
 // const contactForm = document.getElementById('contact-form');
@@ -93,7 +92,6 @@ function fnFindProducts(ProductUids)
                                         subtot +=   productsprice.reduce((accumulater,currentvalue)=>   {
                                             accumulater+currentvalue
                                         });            
-                                     console.log(subtot)
                                      
             lines.push({"uid":prodUId,"quantity":quantity,"subtotal":subtotal});
             total_item_count+=quantity;

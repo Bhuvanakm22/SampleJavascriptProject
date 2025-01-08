@@ -32,19 +32,29 @@ function printData(data)
     const outputElement = document.getElementById('ProductArrayCalc_response-message');
     outputElement.innerHTML = `<p>Single Student team number: ${data}</p>`;
 }
+function getData()
+{
+    let arrays=new Array();
+    arrays=document.getElementById('txt-output').value;
+    res=SingleStudentCheck_effective.apply(this,arrays.split(","));  //Pushing string as an array
+    res=SingleStudentCheck_effective(arrays.split(","));
+    return res
+}
+// let res=SingleStudentCheck([2,6,5,6,2]);
 
-let res=SingleStudentCheck([2,6,5,6,2]);
-printData(res);
+// printData(res);
+function onLoadOrSubmit()
+{
+    let result=""
+    result=getData();
+    printData(result);
+}
+onLoadOrSubmit();
         const contactForm = document.getElementById('contact-form');
         contactForm.addEventListener('submit', (event) => {
             event.preventDefault();
-          
             const formData = new FormData(contactForm);
             console.log(formData);
-            let arrays=new Array();
-            arrays=document.getElementById('txt-output').value;
-            res=SingleStudentCheck_effective.apply(this,arrays.split(","));  //Pushing string as an array
-            res=SingleStudentCheck_effective(arrays.split(","));
-            printData(res);
+            onLoadOrSubmit();
         });
         
